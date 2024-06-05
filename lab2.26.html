@@ -1,0 +1,133 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: "Calibri Light",serif;
+            font-weight: bold;
+            background-color: var(--blue);
+        }
+        .cards {
+            padding: 10px;
+        }
+        .cards__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+        .card__grid_1 {
+            display: grid;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .card__grid_2 {
+            display: grid;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 1;
+        }
+        .card__grid_3 {
+            display: grid;
+            grid-column-start: 3;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+        .card__grid_4 {
+            display: grid;
+            grid-column-start: 4;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+        .card {
+            background-color: rgba(114, 108, 21, 0.66);
+            padding: 15px;
+            border-radius: var(--main-round-border);
+        }
+        .card__first {
+            background-color: rgba(80, 117, 185, 0.91);
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 50px;
+            color: rgb(255, 255, 255);
+        }
+        .card__link {
+            width: 20px;
+            height: 20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: var(--main-round-border);
+            background-color: var(--orange);
+        }
+        .card__link_first {
+            background-color: rgba(54, 46, 104, 0.93);
+            max-width: max-content;
+            max-height: max-content;
+            width: auto;
+            height: auto;
+            padding: 20px 25px;
+        }
+        .text-big {
+            font-size: 3rem;
+        }
+        .text-small {
+            font-size: 2rem;
+        }
+        .text-xs {
+            font-size: 1.3rem;
+        }
+        @media screen and (max-width: 768px) {
+            .cards__flex {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cards">
+    <div class="cards__grid cards__flex">
+        <div class="card card__grid_1 card__first">
+            <div class="text-big">
+                Мастер колод для Hearthstone
+            </div>
+            <div class="card__link card__link_first"><div class="text-xs">Начать!</div></div>
+        </div>
+        <div class="card card__grid_2">
+            <div class="text-small">
+                Выбрать класс
+            </div>
+
+            <div class="card__link">></div>
+        </div>
+        <div class="card card__grid_3">
+            <div class="text-small">
+                Найти карту
+            </div>
+
+            <div class="card__link">></div>
+        </div>
+        <div class="card card__grid_4">
+            <div class="text-small">
+                Советы и помощь
+            </div>
+
+            <div class="card__link">></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
