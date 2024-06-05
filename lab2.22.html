@@ -1,0 +1,114 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style/form.css" rel="stylesheet">
+    <link href="style/btn.css" rel="stylesheet">
+    <link href="style/var.css" rel="stylesheet">
+</head>
+<body>
+<div style="display:flex; justify-content: center">
+    <form class="form-vertical form-vertical_round" style="width: 300px" action="" id="myForm">
+        <p id="errorMessage" class="btn btn_danger" style="display: none">Пожалуйста, заполните все поля корректно.</p>
+
+        <div class="form__header">Регистрация</div>
+        <div class="form__group">
+            <label for="name"> имя </label>
+            <input class="form__input" type="text" id="name" name="name" placeholder="Иван" required>
+        </div>
+        <div class="form__group">
+            <label for="email"> email </label>
+            <input class="form__input" name="email" type="email" id="email" placeholder="email@mail.ru">
+        </div>
+        <div class="form__group">
+            <label for="password"> пароль </label>
+            <input class="form__input" type="password" id="password" name="password">
+        </div>
+        <div class="form__group">
+            <label for="password2"> повторите пароль </label>
+            <input class="form__input" type="password" id="password2" name="password">
+        </div>
+        <button class="btn btn_success" type="submit">зарегистрироваться</button>
+    </form>
+</div>
+
+<script>
+    let message = '';
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Отмена отправки формы, если данные не прошли валидацию
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('errorMessage').textContent = message;
+        }
+    });
+
+    function validateForm() {
+        let nameInput = document.getElementById('name');
+        let emailInput = document.getElementById('email');
+        let passwordInput = document.getElementById('password');
+        let password2Input = document.getElementById('password2');
+
+        let name = nameInput.value.trim();
+        let email = emailInput.value.trim();
+        let password = passwordInput.value.trim();
+        let password2 = password2Input.value.trim();
+
+        if (name === '') {
+            nameInput.classList.add('form__input_error');
+            message = 'Имя не указано';
+            return false;
+        } else {
+            nameInput.classList.remove('form__input_error');
+        }
+
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailPattern)) {
+            message = 'неверный формат email';
+            emailInput.classList.add('form__input_error');
+            return false;
+        } else {
+            emailInput.classList.remove('form__input_error');
+        }
+
+        if (!checkPassword(password)) {
+            passwordInput.classList.add('form__input_error');
+            message = 'пароль должен иметь 6 символов или больше, обязательно должны быть символы .?#%, строчные и заглавные буквы';
+            return false;
+        } else {
+            passwordInput.classList.remove('form__input_error');
+        }
+
+        if (password !== password2) {
+            passwordInput.classList.add('form__input_error');
+            password2Input.classList.add('form__input_error');
+            message = 'пароли не совпадают';
+            return false;
+        } else {
+            passwordInput.classList.remove('form__input_error');
+            password2Input.classList.remove('form__input_error');
+        }
+
+        return true;
+    }
+
+    function checkPassword(password) {
+        if (password.length < 6) {
+            return false;
+        }
+
+        if (!/[.?#%]/.test(password)) {
+            return false;
+        }
+
+        if (!/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

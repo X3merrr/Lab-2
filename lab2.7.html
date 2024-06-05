@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="styletable.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<!--Заголовок-->
+<h1>Это Заголовок</h1>
+
+<!--Абзац-->
+<div>
+    <p>Это Абзац</p>
+</div>
+
+<!--Список-->
+<ol>
+    <li>Это</li>
+    <li>Список</li>
+</ol>
+
+<!--Картинка-->
+<p><image src="favicon.ico" width="100px"></image></p>
+
+<!--Видео-->
+<p><video src="video.mp4" width="600px" controls="controls"></video></p>
+
+<!--Форма обратной связи-->
+<div>
+    <input name="name" type="text" placeholder="Ваше имя" />
+    <br>
+    <input name="email" type="text" placeholder="Ваша почта" />
+    <br>
+    <textarea cols="32" name="message" rows="5" placeholder="Текст сообщения">
+</textarea>
+    <br>
+    <input type="submit" value="Отправить" />
+</div>
+
+<!--Таблица-->
+<div>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <th>Кружка</th>
+            <th>100 р.</th>
+            <th>Пластиковая кружка</th>
+        </tr>
+        <tr>
+            <th>Тарелка</th>
+            <th>99 р.</th>
+            <th>Пластиковая тарелка</th>
+        </tr>
+    </table>
+
+<!--Интерактивная карта-->
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5019a304d52c2648b9c7852259cb50039abcabb9331e0cc9dbbc84288c9e629d&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+<!--Выпадающее меню-->
+<div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Выпадающее меню
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Ссылка 1</a>
+        <a href="#">Ссылка 2</a>
+        <a href="#">Ссылка 3</a>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+
+<!--Аудио-плеер-->
+<p><audio src="DM_DOKURO_-_Roar_of_the_Jungle_Dragon_66876321.mp3" controls="controls"></audio></p>
+
+<!--Галерея изображений-->
+<div class="container">
+    <div class="slides">
+        <div class="number">1 / 3</div>
+        <img id="myImage" src="bones.png" alt="Скелет-помощник">
+        <div id="myResult" class="imgzoomres"></div>
+    </div>
+    <div class="slides">
+        <div class="number">2 / 3</div>
+        <img id="myImage" src="aport.png" alt="Апорт!">
+        <div id="myResult" class="imgzoomres"></div>
+    </div>
+    <div class="slides">
+        <div class="number">3 / 3</div>
+        <img id="myImage" src="raza.png" alt="Раза Запечатанный">
+        <div id="myResult" class="imgzoomres"></div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+    <div class="caption-container">
+        <p id="caption"></p>
+    </div>
+
+    <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="bones.png" style="width:75%" onclick="currentSlide(1)" alt="Скелет-помощник">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="aport.png" style="width:75%" onclick="currentSlide(2)" alt="Апорт!">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="raza.png" style="width:75%" onclick="currentSlide(3)" alt="Раза Запечатанный">
+        </div>
+</div>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+</script>
+</div>
+
+<!--Форма заказа-->
+<body>
+ 
+    <tr>
+    <p><td><h1 style="text-align: center;">
+    <table style="text-align: center; width: 647px; height: 224px">
+    <tr>
+    <td style="text-align: right" > </p>
+    Наименования товара
+    </td>
+    <td>
+    <p><select size="5" multiple name="hero[]">
+        <option selected disabled>Выберите товар</option>
+        <option  value="Яблоки">Яблоки</option>
+        <option  value="Груши">Груши</option>
+        <option value="Бананы">Бананы</option>
+        <option value="Арбузы">Арбузы</option>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: right" >
+    Количество
+    </td>
+    <td>
+    <input type="text" size="5" name="cash" value="шт">
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align: right" >
+    <tr>
+    <td style="text-align: right" >Адресс доставки
+    </td>
+    <td>
+    <input type="text" size="60"  name="adress" value="">
+     
+    </td>
+    <td>
+        <div style="text-align: center">
+            <form method='post' target='selected'>
+            <input type="button" value="Отправить заказ"> </p>
+            </div>
+    </td>
+    </tr>
+    </table>
+     
+    </form>
+    </td>
+    </tr>
+    </body>
+
+<!--Iframe-->
+<iframe width="560" height="315" 
+src="https://shardtcg.com/"
+allowfullscreen></iframe>
+
+<!--Анимированный слайдер-->
+<div class="slideshow">
+    <div class="slideshow-item">
+        <img src="Sargeras.png" alt="">
+        <div class="slideshow-item-text">
+            <h5>Саргерас</h5>
+            <p>Класс: Чернокнижник<br>
+                Мана: 9<br>
+                6/12
+            </p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="Kaz'Goroth.png" alt="">
+        <div class="slideshow-item-text">
+            <h5>Каз'Горот</h5>
+            <p>Класс: Воин<br>
+            Мана: 6<br>
+            4/4
+            </p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="Aman'thul.png" alt="">
+        <div class="slideshow-item-text">
+            <h5>Аман'Тул</h5>
+            <p>Класс: Жрец<br>
+                Мана: 7<br>
+                3/10
+            </p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="Primus.png" alt="">
+        <div class="slideshow-item-text">
+            <h5>Примас</h5>
+            <p>Класс: Рыцарь Смерти<br>
+            Мана: 8<br>
+            7/9
+            </p>            
+        </div>
+    </div>
+</div>
+
+<!--Проверка вводимых данных-->
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">OK</button>
+
+<p id="demo"></p>
+
+<script>
+ function myFunction() {
+    var inpObj = document.getElementById("id1");
+    if (!inpObj.checkValidity()) {
+        document.getElementById("demo").innerHTML = inpObj.validationMessage;
+    }
+}
+</script>
+
+<!--Меню-Бургер-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <section class="top-nav">
+    <div>
+      Logo Here
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+    <ul class="menu">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+    </ul>
+  </section>
+<br><br><br><br><br><br><br><br><br><br>
+
+ <!--Графика-->
+ <canvas id="myCanvas" width="400" height="200">
+ </canvas>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    // прямоугольник
+    context.fillStyle = '#fff000';
+    context.fillRect(50, 50, 100, 100);
+
+    // круг
+    context.beginPath();
+    context.arc(200, 100, 50, 0, 2 * Math.PI);
+    context.fillStyle = '#00ffff';
+    context.fill();
+
+    // линия
+    context.beginPath();
+    context.moveTo(250, 50);
+    context.lineTo(350, 150);
+    context.strokeStyle = '#f000ff';
+    context.lineWidth = 5;
+    context.stroke();
+</script>
+
+<!--Социальная сеть-->
+<!--Файл 2.21-->
+
+<!--Регистрация-->
+<!--Файл 2.22-->
+
+<!--Табличное представление данных-->
+<head>
+    <title>Табличное представление данных</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        .filter-input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div style="display:flex; flex-direction:column; justify-content: center; align-items: center; text-align: center;">
+    <div style="width: 80%">
+        <h1>Сортировка</h1>
+        <label>
+            <input type="text" id="filterInput" class="filter-input form__input" placeholder="Фильтр">
+        </label>
+
+        <table id="dataTable">
+            <thead>
+            <tr>
+                <th onclick="sortTable(0)">Имя</th>
+                <th onclick="sortTable(1)">Возраст</th>
+                <th onclick="sortTable(2)">Город</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Никита</td>
+                <td>25</td>
+                <td>Москва</td>
+            </tr>
+            <tr>
+                <td>Влад</td>
+                <td>30</td>
+                <td>Санкт-Петербург</td>
+            </tr>
+            <tr>
+                <td>Тимур</td>
+                <td>28</td>
+                <td>Киев</td>
+            </tr>
+            <tr>
+                <td>Ярослав</td>
+                <td>25</td>
+                <td>Южно-Сахалинск</td>
+            </tr>
+            <tr>
+                <td>Тимур</td>
+                <td>22</td>
+                <td>Южно-Сахалинск</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    function sortTable(columnIndex) {
+        let table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("dataTable");
+        switching = true;
+
+        while (switching) {
+            switching = false;
+            rows = table.getElementsByTagName("tr");
+
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("td")[columnIndex];
+                y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
+    document.getElementById("filterInput").addEventListener("input", function() {
+        let filterValue = this.value.toLowerCase();
+        let table = document.getElementById("dataTable");
+        let rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            let rowData = rows[i].getElementsByTagName("td");
+            let showRow = false;
+
+            for (let j = 0; j < rowData.length; j++) {
+                let cellData = rowData[j].innerHTML.toLowerCase();
+
+                if (cellData.indexOf(filterValue) > -1) {
+                    showRow = true;
+                    break;
+                }
+            }
+
+            rows[i].style.display = showRow ? "" : "none";
+        }
+    });
+</script>
+</body>
+
+<!--Гугл шрифты-->
+<!--Файл 2.24-->
+
+<!--Drag and Drop-->
+<style>
+    .drag-item {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        text-align: center;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: move;
+        text-wrap: normal;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+    }
+
+    .drop-area {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: start;
+        flex-wrap: wrap;
+        min-height: 500px;
+        width: 80%;
+        background-color: #e9e9e9;
+        border: 2px dashed #aaa;
+        border-radius: 4px;
+        margin-top: 20px;
+        padding: 10px;
+        gap:15px;
+    }
+
+    .drop-area__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .drop-area__center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: default;
+    }
+</style>
+<body>
+<h1>Drag and Drop</h1>
+
+<div style="display: flex; flex-wrap: wrap; flex-direction: row; gap: 15px;">
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+<div class="drag-item" draggable="true">
+    <span>Drag me!</span>
+</div>
+
+</div>
+
+<div class="drop-area__wrap" style="display: flex; flex-direction: column;">
+<div class="drop-area" id="dropArea">
+    <span class="drop-area__center">Drop here!</span>
+</div>
+</div>
+<script>
+let dragItem = document.getElementsByClassName('drag-item');
+for (let i = 0; i < dragItem.length; i++) {
+    dragItem[i].id = `drag${i}`
+    dragItem[i].addEventListener('dragstart', drag);
+}
+
+let dropArea = document.getElementById('dropArea');
+
+dropArea.addEventListener('dragover', allowDrop);
+dropArea.addEventListener('drop', drop);
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData('text', event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    let data = event.dataTransfer.getData('text');
+    let draggedItem = document.getElementById(data);
+
+    if (event.target.className === 'drop-area') {
+        event.target.appendChild(draggedItem);
+    }
+}
+</script>
